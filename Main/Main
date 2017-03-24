@@ -1,0 +1,35 @@
+package Main;
+
+import Thread.Multi_Thread;
+
+class Main
+{
+    public static void main(String args[])
+    {
+        try
+        {
+            // create threads
+            Multi_Thread mt1 = new Multi_Thread("1st Thread");
+            Thread t1 = new Thread(mt1);
+            //Thread t1 = new Thread(new Multi_Thread("First Thread"));
+
+            Multi_Thread mt2 = new Multi_Thread("2nd Thread");
+            Thread t2 = new Thread(mt2);
+
+            // start threads
+            t1.start();
+            t2.start();
+
+            // join threads(wait main class until finish threads)
+            t1.join();
+            t2.join();
+
+            System.out.println("End Program");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+}
